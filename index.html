@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="風馳小鐵人 2026 秋日團騎：10/18 從淡江租借站出發，沿金色水岸觀海長堤、公司田溪自行車道，騎上淡江大橋到八里十三行，約 15 公里。">
+<title>風馳秋日團騎</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;800&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: 單欄閱讀版面，左側有一條「里程軸」貫穿路線與時程；地圖為手繪風格 SVG。 */
+:root{
+  --bg:#eef3f3;        /* 海霧白 */
+  --paper:#ffffff;
+  --ink:#16292f;
+  --ink-2:#4a5f66;
+  --line:#cfdbdc;
+  --sea:#1b6a7d;       /* 河口深青 */
+  --sea-soft:#d6e8ec;
+  --amber:#d2782a;     /* 秋陽 */
+  --amber-soft:#f6e3cf;
+  --land:#e7e0cf;
+  --water:#bcd8e0;
+  --warn:#b4432a;
+  --ok:#2c7a4b;
+  --ill-sky:#dcedf2;
+  --ill-sky2:#f3e4cf;
+  --ill-hill:#9fb7b6;
+  --ill-white:#ffffff;
+  --ill-green:#8fb58a;
+  --f-display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono","SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1b1f;--paper:#17262b;--ink:#e6eef0;--ink-2:#a3b6bb;--line:#2b3d43;
+    --sea:#5fb4c8;--sea-soft:#1c3b45;--amber:#e9995a;--amber-soft:#3b2a1a;
+    --land:#2a3a3a;--water:#1d3b47;--warn:#f08a74;--ok:#7bc795;
+    --ill-sky:#13303a;--ill-sky2:#2d2a2a;--ill-hill:#223e44;--ill-white:#d9e6ea;--ill-green:#3f6a4a;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1b1f;--paper:#17262b;--ink:#e6eef0;--ink-2:#a3b6bb;--line:#2b3d43;
+  --sea:#5fb4c8;--sea-soft:#1c3b45;--amber:#e9995a;--amber-soft:#3b2a1a;
+  --land:#2a3a3a;--water:#1d3b47;--warn:#f08a74;--ok:#7bc795;
+  --ill-sky:#13303a;--ill-sky2:#2d2a2a;--ill-hill:#223e44;--ill-white:#d9e6ea;--ill-green:#3f6a4a;color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.75;margin:0}
+.wrap{max-width:860px;margin:0 auto;padding-inline:20px;padding-block:0 80px}
+a{color:var(--sea)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.25;margin:0}
+h2{font-size:1.65rem;font-weight:800}
+h3{font-size:1.15rem;font-weight:600}
+p{margin:0}
+.eyebrow{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:600}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+/* Hero */
+.hero{padding-block:56px 36px;display:grid;gap:22px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:clamp(2.1rem,6vw,3.4rem);font-weight:800}
+.hero h1 em{font-style:normal;color:var(--sea)}
+.lede{font-size:1.08rem;color:var(--ink-2);max-width:36em}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border:1px solid var(--line);background:var(--paper)}
+.fact{padding:14px 16px;border-right:1px solid var(--line);min-width:0}
+.fact:last-child{border-right:0}
+.fact .k{font-size:.78rem;color:var(--ink-2);letter-spacing:.06em}
+.fact .v{font-family:var(--f-mono);font-size:1.35rem;font-weight:600;line-height:1.3;font-variant-numeric:tabular-nums}
+.fact .s{font-size:.82rem;color:var(--ink-2)}
+@media (max-width:520px){.fact{border-right:0;border-bottom:1px solid var(--line)}.fact:last-child{border-bottom:0}}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--sea);color:var(--sea)}
+.btn.primary{background:var(--sea);color:var(--bg)}
+.btn.primary:hover{filter:brightness(1.08)}
+
+/* Sections */
+section{padding-block:48px 8px}
+.sec-head{display:grid;gap:6px;margin-bottom:24px}
+.sec-head p{color:var(--ink-2);max-width:40em}
+
+/* Map */
+.map{background:var(--paper);border:1px solid var(--line);padding:12px}
+.map svg{width:100%;height:auto;display:block;max-width:100%}
+.map .sea{fill:var(--water)}
+.map .land{fill:var(--land)}
+.map .route{fill:none;stroke:var(--sea);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.map .route-back{fill:none;stroke:var(--amber);stroke-width:4;stroke-dasharray:10 9;stroke-linecap:round;stroke-linejoin:round}
+.map .bridge{fill:none;stroke:var(--ink);stroke-width:2.5;stroke-dasharray:4 4}
+.map .pt{fill:var(--paper);stroke:var(--sea);stroke-width:4}
+.map .pt.turn{stroke:var(--amber)}
+.map .lbl{font-family:var(--f-body);font-size:19px;font-weight:700;fill:var(--ink)}
+.map .lbl.sm{font-size:15px;font-weight:500;fill:var(--ink-2)}
+.map .legend text{font-family:var(--f-body);font-size:16px;fill:var(--ink-2)}
+.map-note{font-size:.85rem;color:var(--ink-2);margin-top:10px;display:flex;flex-wrap:wrap;gap:8px 20px}
+
+/* Route list: 里程軸 */
+.stops{list-style:none;margin:28px 0 0;padding:0;display:grid}
+.stop{display:grid;grid-template-columns:64px 28px 1fr;gap:0 12px;position:relative;min-width:0}
+.stop .km{font-family:var(--f-mono);font-size:.85rem;color:var(--ink-2);padding-top:4px;text-align:right;font-variant-numeric:tabular-nums}
+.stop .dot{position:relative}
+.stop .dot::before{content:"";position:absolute;left:12px;top:0;bottom:0;width:2px;background:var(--line)}
+.stop .dot::after{content:"";position:absolute;left:7px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:3px solid var(--sea)}
+.stop.turn .dot::after{border-color:var(--amber);background:var(--amber)}
+.stop:first-child .dot::before{top:12px}
+.stop:last-child .dot::before{bottom:auto;height:12px}
+.stop .body{padding-bottom:22px;min-width:0}
+.stop .body b{font-weight:700}
+.stop .body span{display:block;color:var(--ink-2);font-size:.92rem}
+
+/* Timeline */
+.tl{display:grid;gap:0;border-top:1px solid var(--line)}
+.tl .row{display:grid;grid-template-columns:76px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);min-width:0}
+.tl .t{font-family:var(--f-mono);font-weight:600;color:var(--sea);font-variant-numeric:tabular-nums;padding-top:2px;line-height:1.3}
+.tl .t small{display:block;font-weight:500;font-size:.78rem;color:var(--ink-2)}
+.tl .what b{display:block;font-weight:700}
+.tl .what span{color:var(--ink-2);font-size:.92rem}
+.tl .row.rest .t{color:var(--amber)}
+.tl-note{margin-top:14px;font-size:.9rem;color:var(--ink-2)}
+
+
+/* Notes */
+.notes{display:grid;gap:22px}
+.note-group{display:grid;gap:8px}
+.note-group ul{margin:0;padding-left:1.2em;display:grid;gap:6px}
+.note-group li{color:var(--ink);padding-left:.2em}
+.note-group li small{color:var(--ink-2)}
+.callout{border-left:4px solid var(--warn);background:var(--paper);padding:14px 18px;display:grid;gap:4px}
+.callout b{color:var(--warn)}
+.chip{display:inline-block;font-family:var(--f-mono);font-size:.7rem;padding:1px 8px;border:1px solid var(--amber);color:var(--amber);border-radius:999px;vertical-align:middle;margin-left:6px;letter-spacing:.06em}
+
+/* Fees */
+.fee{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.fee .card{background:var(--paper);border:1px solid var(--line);padding:20px;display:grid;gap:4px}
+.fee .price{font-family:var(--f-mono);font-size:2rem;font-weight:600;color:var(--sea);font-variant-numeric:tabular-nums;line-height:1.1}
+.fee .card p{color:var(--ink-2);font-size:.92rem}
+.pack{margin-top:22px;background:var(--paper);border:1px solid var(--line);padding:18px 20px;display:grid;gap:10px}
+.pack ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:6px 18px}
+.pack li::before{content:"□ ";color:var(--amber);font-weight:700}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--ink-2);font-size:.85rem;display:grid;gap:6px}
+footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font-size:1.05rem}
+@media (prefers-reduced-motion:no-preference){
+  .hero h1{animation:rise .6s ease-out both}
+  @keyframes rise{from{opacity:.001;transform:translateY(8px)}to{opacity:1;transform:none}}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">風馳小鐵人 · 2026 秋季團騎</div>
+  <h1>秋日吹風，<em>騎上淡江大橋</em></h1>
+  <p class="lede">去年我們搭渡輪回淡水，今年我們直接騎上淡江最新地標。從淡江租借站出發，沿金色水岸觀海長堤看海，轉進公司田溪自行車道穿過淡海新市鎮，再迎著河口的風跨過淡江大橋到八里。沒有計時、沒有競速，一起騎、一起聊、一起看風景。</p>
+  <div class="facts">
+    <div class="fact"><div class="k">日期</div><div class="v">10/18</div><div class="s">2026 年 · 星期日</div></div>
+    <div class="fact"><div class="k">集合</div><div class="v">13:00</div><div class="s">約 16:00 於八里十三行解散</div></div>
+    <div class="fact"><div class="k">距離</div><div class="v">約 15 km</div><div class="s">平坦為主 · 全程單車道</div></div>
+  </div>
+  <div class="cta">
+    <a class="btn primary" href="https://maps.app.goo.gl/GFWC3UEqQsR4SAmt9" target="_blank" rel="noopener">在 Google 地圖開啟路線</a>
+    <a class="btn" href="#notes">先看注意事項</a>
+  </div>
+</header>
+
+<section id="meet">
+  <div class="sec-head">
+    <div class="eyebrow">集合地點</div>
+    <h2>新北市河濱公共自行車 淡江租借站</h2>
+    <p>位於淡水漁人碼頭旁、情人橋附近。騎自己的車來或現場租借都可以，租借站有一般自行車可租，請提前 15 分鐘到場辦理。搭大眾運輸的話，淡海輕軌「淡水漁人碼頭站」步行約 10 分鐘，或從捷運淡水站轉乘紅 26 公車至漁人碼頭。</p>
+  </div>
+</section>
+
+<section id="route">
+  <div class="sec-head">
+    <div class="eyebrow">路線</div>
+    <h2>先往北看海，繞溪回來，再往南過橋</h2>
+    <p>路線是一個不走回頭路的環。先沿海堤北上，騎完金色水岸觀海長堤後接公司田溪自行車道，穿過淡海新市鎮回到沙崙路；接淡水觀海長堤，騎上淡江大橋到八里端的十三行文化公園，吃完點心就地解散，不回程。全程約 15 公里，以休閒速度騎約 1 小時 10 分，其餘時間留給看海、拍照、吃點心。</p>
+  </div>
+
+  <div class="map">
+    <svg viewBox="760 0 640 880" role="img" aria-label="團騎路線示意圖：淡江租借站向北沿海岸到金色水岸觀海長堤，接公司田溪自行車道繞回沙崙路，經淡水觀海長堤騎上淡江大橋到八里十三行文化公園">
+      <rect x="760" y="0" width="640" height="880" class="sea"/>
+      <!-- 淡水端陸地 -->
+      <path class="land" d="M1000 0 L1000 95 L985 160 L1005 230 L1045 300 L965 315 L890 330 L845 360 L850 405 L925 445 L1005 450 L1045 465 L1090 500 L1160 545 L1260 605 L1400 670 L1400 0 Z"/>
+      <!-- 八里端陸地 -->
+      <path class="land" d="M760 770 L860 745 L920 730 L1000 755 L1160 800 L1320 835 L1400 850 L1400 880 L760 880 Z"/>
+      <!-- 淡江大橋 -->
+      <path class="bridge" d="M1066 478 L920 762"/>
+      <!-- 公司田溪（示意） -->
+      <path d="M1000 300 L1060 262 L1120 240 L1190 235 L1260 228 L1330 215" fill="none" stroke="var(--water)" stroke-width="8" stroke-linecap="round"/>
+      <!-- 北段：海岸北上 -->
+      <path class="route" d="M937 440 L905 410 L870 380 L855 360 L905 335 L965 315 L1010 295 L1040 262 L1055 220 L1050 172 L1040 120 L1045 45"/>
+      <!-- 公司田溪自行車道：繞回沙崙路 -->
+      <path class="route" d="M1045 45 L1070 110 L1085 172 L1110 232 L1180 248 L1250 240 L1310 243 L1250 310 L1180 380 L1110 435 L1045 467"/>
+      <!-- 南段：過橋 -->
+      <path class="route" d="M1045 467 L1062 510 L1040 570 L985 660 L935 745 L935 815"/>
+      <!-- 點位 -->
+      <circle class="pt turn" cx="1045" cy="45" r="9"/>
+      <circle class="pt" cx="1085" cy="172" r="8"/>
+      <circle class="pt" cx="1310" cy="243" r="8"/>
+      <circle class="pt" cx="1040" cy="262" r="8"/>
+      <circle class="pt" cx="965" cy="315" r="8"/>
+      <circle class="pt" cx="855" cy="360" r="8"/>
+      <circle class="pt" cx="937" cy="440" r="11"/>
+      <circle class="pt" cx="1045" cy="467" r="8"/>
+      <circle class="pt" cx="1015" cy="590" r="8"/>
+      <circle class="pt turn" cx="935" cy="815" r="9"/>
+      <!-- 標籤 -->
+      <text class="lbl" x="1062" y="40">金色水岸觀海長堤</text>
+      <text class="lbl sm" x="1062" y="62">北端 · 轉進公司田溪</text>
+      <text class="lbl" x="1100" y="160">水管公園</text>
+      <text class="lbl" x="1130" y="285">公司田溪自行車道</text>
+      <text class="lbl" x="1250" y="220">濱海沙崙</text>
+      <text class="lbl sm" x="1190" y="350">沙崙路</text>
+      <text class="lbl" x="985" y="255">綠野馬術文創園區</text>
+      <text class="lbl" x="985" y="305">沙崙海灘</text>
+      <text class="lbl" x="790" y="340">魚藏文化館</text>
+      <text class="lbl" x="770" y="458">淡江租借站</text>
+      <text class="lbl sm" x="770" y="478">集合 / 解散</text>
+      <text class="lbl" x="1062" y="473">淡水觀海長堤</text>
+      <text class="lbl" x="1035" y="598">淡江大橋</text>
+      <text class="lbl" x="955" y="822">十三行文化公園</text>
+      <text class="lbl sm" x="955" y="842">終點 · 點心 · 解散</text>
+      <text class="lbl sm" x="860" y="620">淡水河口</text>
+      <text class="lbl sm" x="800" y="150">台灣海峽</text>
+      <!-- 圖例 -->
+      <g class="legend">
+        <line x1="1180" y1="760" x2="1230" y2="760" stroke="var(--sea)" stroke-width="7" stroke-linecap="round"/>
+        <text x="1240" y="766">路線 約 15 km</text>
+        <circle cx="1205" cy="800" r="8" class="pt"/>
+        <text x="1240" y="806">停點</text>
+        <circle cx="1205" cy="834" r="8" class="pt turn"/>
+        <text x="1240" y="840">轉折點 / 終點</text>
+      </g>
+    </svg>
+    <div class="map-note">
+      <span>示意圖，非等比例。實際路線請以 Google 地圖與領騎指示為準。</span>
+      <a href="https://maps.app.goo.gl/GFWC3UEqQsR4SAmt9" target="_blank" rel="noopener">開啟完整路線 ↗</a>
+    </div>
+  </div>
+
+  <h3 style="margin:36px 0 14px">預計時程與里程</h3>
+  <div class="tl">
+    <div class="row"><div class="t">13:00<small>0 km</small></div><div class="what"><b>淡江租借站 集合、租車、點名</b><span>檢查煞車、胎壓、安全帽，領騎說明路線與手勢</span></div></div>
+    <div class="row"><div class="t">13:30<small>0 km</small></div><div class="what"><b>出發，沿海堤北上</b><span>經漁人碼頭、魚藏文化館、沙崙海灘（1.5 km）、綠野馬術文創園區（3 km），接上堤頂車道</span></div></div>
+    <div class="row rest"><div class="t">14:05<small>4.5 km</small></div><div class="what"><b>金色水岸觀海長堤 北端</b><span>堤頂 3 公尺寬鋼構車道，全程海景。停留 20 分鐘：看海、拍合照</span></div></div>
+    <div class="row"><div class="t">14:25<small>6 km</small></div><div class="what"><b>公司田溪自行車道 · 水管公園</b><span>沿溪穿過淡海新市鎮，離開海風、進入樹蔭與社區段</span></div></div>
+    <div class="row"><div class="t">14:45<small>8 km</small></div><div class="what"><b>濱海沙崙，轉沙崙路南下</b><span>與市區道路並行的單車道，注意路口與行人</span></div></div>
+    <div class="row rest"><div class="t">15:05<small>10.5 km</small></div><div class="what"><b>淡水觀海長堤，騎上淡江大橋</b><span>自行車道靠右、單列前進，橋頂視野處停留拍照 10 到 15 分鐘</span></div></div>
+    <div class="row rest"><div class="t">15:35<small>約 15 km</small></div><div class="what"><b>十三行文化公園 · 點心、合照、解散</b><span>八里挖子尾。發放小點心、補水、上洗手間，合照後就地解散，不回程</span></div></div>
+  </div>
+  <p class="tl-note">里程依 Google 地圖規劃路線（14.7 km）概估，時間以休閒速度 12 到 15 km/h 推算，以最後一位隊員的速度為團速。金色水岸海堤段屬海岸管制區，每日開放 06:00 到 19:00，本行程 14:30 前就離開海堤段。</p>
+  <p class="tl-note" style="margin-top:8px">解散後各自返程。租借車的歸還站點與八里端返程方式（渡船頭搭渡輪回淡水或公車）由主辦公告。<span class="chip">待主辦確認</span></p>
+</section>
+
+<section id="notes">
+  <div class="sec-head">
+    <div class="eyebrow">注意事項</div>
+    <h2>出發前請先讀過一次</h2>
+  </div>
+  <div class="notes">
+    <div class="callout">
+      <b>橋上風大，請格外小心</b>
+      <p>淡江大橋位在河口，秋季東北季風強，側風會推車。橋上請降速、雙手握把、不並排、不邊騎邊拍。要拍照請在領騎指定的地方停車。</p>
+    </div>
+    <div class="note-group">
+      <h3>騎乘安全</h3>
+      <ul>
+        <li>全程戴安全帽，扣好扣環。租借車也一樣。</li>
+        <li>跟車保持一台車以上的距離，前方減速請舉手示意。</li>
+        <li>自行車道與行人共用路段請禮讓行人，鈴聲提醒即可，不按喇叭、不催。</li>
+        <li>分隊騎行：領騎在前、壓隊在後，中途不脫隊、不自行抄近路。看不到前後隊友時請停下等候。</li>
+        <li>過馬路一律下車牽行或依號誌通過。</li>
+      </ul>
+    </div>
+    <div class="note-group">
+      <h3>裝備與補給</h3>
+      <ul>
+        <li>防風外套或薄長袖。海邊與橋上體感比市區低。</li>
+        <li>至少 600 ml 的水，沿線補給點少。十三行休息時會發放小點心。</li>
+        <li>防曬與太陽眼鏡，橋上與海堤上沒有遮蔭。</li>
+        <li>自備車請前一天檢查煞車、胎壓、變速；帶簡易補胎工具更好。</li>
+      </ul>
+    </div>
+    <div class="note-group">
+      <h3>行程規則</h3>
+      <ul>
+        <li>公司田溪自行車道與沙崙路段會穿過社區與路口，請減速並依號誌通行。</li>
+        <li>活動在八里十三行文化公園解散，不騎回淡水。請自行安排返程。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+</div>
+</body>
+</html>
