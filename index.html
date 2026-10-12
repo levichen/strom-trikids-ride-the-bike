@@ -179,6 +179,22 @@ html{scroll-snap-type:y proximity}
 .dots a.on{background:var(--amber);border-color:var(--amber)}
 .dots.on-cover a{border-color:rgba(255,255,255,.7)}.dots.on-cover a span{color:#fff}.dots.on-cover a.on{background:#fff;border-color:#fff}
 @media (max-width:700px){.dots{display:none}}
+/* 手機版封面緊湊化：一屏內放下標題、副標、按鈕與資訊列 */
+@media (max-width:600px){
+  .cover-body{padding:40px 20px 10px;gap:12px}
+  .cover h1{font-size:2.15rem}
+  .cover .lede{font-size:.98rem;line-height:1.6}
+  .cover .cta{gap:8px}
+  .cover .btn{padding:8px 14px;font-size:.9rem;border-width:1.5px}
+  .scroll-hint{margin-bottom:6px;font-size:.62rem;gap:0}
+  .scroll-hint svg{width:18px;height:18px}
+  .cover .facts{margin-bottom:14px;grid-template-columns:repeat(3,1fr)}
+  .cover .fact{padding:9px 10px;border-right:1px solid rgba(255,255,255,.22);border-bottom:0}
+  .cover .fact:last-child{border-right:0}
+  .cover .fact .k{font-size:.7rem}
+  .cover .fact .v{font-size:1.05rem}
+  .cover .fact .s{display:none}
+}
 @media (prefers-reduced-motion:no-preference){
   .cover h1{animation:rise .7s ease-out both}
   @keyframes rise{from{opacity:.001;transform:translateY(8px)}to{opacity:1;transform:none}}
@@ -192,7 +208,7 @@ html{scroll-snap-type:y proximity}
   <div class="cover-body">
     <div class="eyebrow">風馳小鐵人 · 2026 秋季團騎</div>
     <h1>秋日吹風，<em>騎上淡江大橋</em></h1>
-    <p class="lede">去年我們搭渡輪回淡水，今年我們直接騎上淡江最新地標。從淡江租借站出發，沿金色水岸觀海長堤看海，轉進公司田溪自行車道穿過淡海新市鎮，再迎著河口的風跨過淡江大橋到八里。沒有計時、沒有競速，一起騎、一起聊、一起看風景。</p>
+    <p class="lede">去年搭渡輪回淡水，今年直接騎上淡江大橋。從淡江租借站出發，沿金色水岸看海，再迎著河口的風過橋到八里。沒有計時、沒有競速，一起騎、一起聊、一起看風景。</p>
     <div class="cta">
       <a class="btn primary" href="https://maps.app.goo.gl/GFWC3UEqQsR4SAmt9" target="_blank" rel="noopener">在 Google 地圖開啟路線</a>
       <a class="btn" href="#notes">先看注意事項</a>
