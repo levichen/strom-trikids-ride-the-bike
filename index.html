@@ -175,8 +175,8 @@ footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font
 <section id="route">
   <div class="sec-head">
     <div class="eyebrow">路線</div>
-    <h2>先往北看海，繞溪回來，再往南過橋</h2>
-    <p>路線是一個不走回頭路的環。先沿海堤北上，騎完金色水岸觀海長堤後接公司田溪自行車道，穿過淡海新市鎮回到沙崙路；接淡水觀海長堤，騎上淡江大橋到八里端的十三行文化公園吃點心，再過橋回漁人碼頭還車解散。到十三行約 15 公里，回程再約 4 公里；想留在八里的人可以在十三行自行脫隊。</p>
+    <h2>先穿新市鎮去看海，沿海岸回來，再往南過橋</h2>
+    <p>路線是一個不走回頭路的環，順序依 Google 地圖規劃。先走沙崙路到濱海沙崙，經水管公園騎上金色水岸觀海長堤；北端折回後接公司田溪自行車道，沿溪口回到海岸線，經綠野馬術、沙崙海灘、魚藏文化館南下回漁人碼頭；接淡水觀海長堤，騎上淡江大橋到八里端的十三行文化公園吃點心，再過橋回漁人碼頭還車解散。到十三行約 15 公里，回程再約 4 公里；想留在八里的人可以在十三行自行脫隊。</p>
   </div>
 
   <div class="map">
@@ -190,11 +190,11 @@ footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font
       <path class="bridge" d="M1066 478 L920 762"/>
       <!-- 公司田溪（示意） -->
       <path d="M1000 300 L1060 262 L1120 240 L1190 235 L1260 228 L1330 215" fill="none" stroke="var(--water)" stroke-width="8" stroke-linecap="round"/>
-      <!-- 北段：海岸北上 -->
-      <path class="route" d="M937 440 L905 410 L870 380 L855 360 L905 335 L965 315 L1010 295 L1040 262 L1055 220 L1050 172 L1040 120 L1045 45"/>
-      <!-- 公司田溪自行車道：繞回沙崙路 -->
-      <path class="route" d="M1045 45 L1070 110 L1085 172 L1110 232 L1180 248 L1250 240 L1310 243 L1250 310 L1180 380 L1110 435 L1045 467"/>
-      <!-- 南段：過橋 -->
+      <!-- 去程 1：沙崙路到濱海沙崙，經水管公園上觀海長堤 -->
+      <path class="route" d="M937 440 L1000 425 L1110 400 L1180 350 L1250 300 L1310 243 L1250 240 L1180 248 L1110 232 L1085 172 L1070 110 L1045 45"/>
+      <!-- 去程 2：公司田溪自行車道沿溪口回海岸，南下回漁人碼頭 -->
+      <path class="route" d="M1045 45 L1040 120 L1050 172 L1055 220 L1040 262 L1010 295 L965 315 L905 335 L855 360 L870 380 L905 410 L937 440 L1000 452 L1045 467"/>
+      <!-- 去程 3：過橋 -->
       <path class="route" d="M1045 467 L1062 510 L1040 570 L985 660 L935 745 L935 815"/>
       <!-- 回程（可脫隊） -->
       <path class="route-back" d="M920 815 L920 745 L970 660 L1025 570 L1047 510 L1030 462 L960 442"/>
@@ -211,11 +211,11 @@ footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font
       <circle class="pt turn" cx="935" cy="815" r="9"/>
       <!-- 標籤 -->
       <text class="lbl" x="1062" y="40">金色水岸觀海長堤</text>
-      <text class="lbl sm" x="1062" y="62">北端 · 轉進公司田溪</text>
+      <text class="lbl sm" x="1062" y="62">北端折回 · 接公司田溪</text>
       <text class="lbl" x="1100" y="160">水管公園</text>
-      <text class="lbl" x="1130" y="285">公司田溪自行車道</text>
+      <text class="lbl" x="1075" y="232">公司田溪自行車道</text>
       <text class="lbl" x="1250" y="220">濱海沙崙</text>
-      <text class="lbl sm" x="1190" y="350">沙崙路</text>
+      <text class="lbl sm" x="1150" y="345">沙崙路（去程）</text>
       <text class="lbl" x="985" y="255">綠野馬術文創園區</text>
       <text class="lbl" x="985" y="305">沙崙海灘</text>
       <text class="lbl" x="790" y="340">魚藏文化館</text>
@@ -246,10 +246,11 @@ footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font
   <h3 style="margin:36px 0 14px">預計時程與里程</h3>
   <div class="tl">
     <div class="row"><div class="t">13:00<small>0 km</small></div><div class="what"><b>淡江租借站 集合、租車、點名</b><span>檢查煞車、胎壓、安全帽，領騎說明路線與手勢</span></div></div>
-    <div class="row"><div class="t">13:30<small>0 km</small></div><div class="what"><b>出發，沿海堤北上</b><span>經漁人碼頭、魚藏文化館、沙崙海灘（1.5 km）、綠野馬術文創園區（3 km），接上堤頂車道</span></div></div>
-    <div class="row rest"><div class="t">14:05<small>4.5 km</small></div><div class="what"><b>金色水岸觀海長堤 北端</b><span>堤頂 3 公尺寬鋼構車道，全程海景。停留 20 分鐘：看海、拍合照</span></div></div>
-    <div class="row"><div class="t">14:25<small>6 km</small></div><div class="what"><b>公司田溪自行車道 · 水管公園</b><span>沿溪穿過淡海新市鎮，離開海風、進入樹蔭與社區段</span></div></div>
-    <div class="row"><div class="t">14:45<small>8 km</small></div><div class="what"><b>濱海沙崙，轉沙崙路南下</b><span>與市區道路並行的單車道，注意路口與行人</span></div></div>
+    <div class="row"><div class="t">13:30<small>0 km</small></div><div class="what"><b>出發，走沙崙路往濱海沙崙</b><span>與市區道路並行的單車道，注意路口與行人</span></div></div>
+    <div class="row"><div class="t">13:50<small>3 km</small></div><div class="what"><b>濱海沙崙 → 水管公園</b><span>穿過淡海新市鎮，大水管造景是打卡點，接上堤頂車道</span></div></div>
+    <div class="row rest"><div class="t">14:10<small>5 km</small></div><div class="what"><b>金色水岸觀海長堤 北端</b><span>堤頂 3 公尺寬鋼構車道，全程海景。停留 20 分鐘：看海、拍合照</span></div></div>
+    <div class="row"><div class="t">14:30<small>6.5 km</small></div><div class="what"><b>公司田溪自行車道</b><span>折回後沿溪口回到海岸線，離開海風、進入樹蔭與溪畔段</span></div></div>
+    <div class="row"><div class="t">14:50<small>8.5 km</small></div><div class="what"><b>綠野馬術 → 沙崙海灘 → 魚藏文化館</b><span>沿海堤南下回漁人碼頭，沙崙海灘可短暫停留拍照</span></div></div>
     <div class="row rest"><div class="t">15:05<small>10.5 km</small></div><div class="what"><b>淡水觀海長堤，騎上淡江大橋</b><span>自行車道靠右、單列前進，橋頂視野處停留拍照 10 到 15 分鐘</span></div></div>
     <div class="row rest"><div class="t">15:35<small>約 15 km</small></div><div class="what"><b>十三行文化公園 · 點心、合照</b><span>八里挖子尾。發放小點心、補水、上洗手間。想留在八里的人可在此自行脫隊，請先告知壓隊</span></div></div>
     <div class="row"><div class="t">16:05<small>回程</small></div><div class="what"><b>原路過橋回漁人碼頭</b><span>再騎淡江大橋一次，迎著夕陽回淡水，約 4 km、20 分鐘</span></div></div>
