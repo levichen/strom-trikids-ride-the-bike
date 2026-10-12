@@ -153,11 +153,15 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:v
 footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font-size:1.05rem}
 
 /* 分區翻頁：封面與集合地點各佔一屏，路線與注意事項維持自然高度，只對齊區塊頂端 */
-html{scroll-snap-type:y proximity}
+html{scroll-snap-type:y mandatory}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 .cover,#meet,#route,#schedule,#notes{scroll-snap-align:start}
-@media (min-width:900px){html{scroll-snap-type:y mandatory}}
-.page{min-height:100vh;min-height:100svh;display:grid;align-content:center;padding-block:40px 28px;box-sizing:border-box}
+.page{min-height:100vh;min-height:100svh;display:grid;align-content:center;padding-block:40px 56px;box-sizing:border-box;position:relative}
+.pager{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:28px;padding-bottom:env(safe-area-inset-bottom,0px)}
+.pager a{color:var(--ink-2);display:inline-flex;width:36px;height:36px;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--line);background:var(--paper)}
+.pager a:hover{color:var(--sea);border-color:var(--sea)}
+.pager svg{width:20px;height:20px}
+@media (prefers-reduced-motion:no-preference){.pager a:last-child svg{animation:bob 1.6s ease-in-out infinite}}
 .page .sec-head{margin-bottom:18px}
 @media (min-width:900px){#route .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:32px;align-items:center}#route .sec-head{margin-bottom:0}}
 .cover{min-height:100vh;min-height:100svh;grid-template-rows:1fr auto auto;grid-template-columns:minmax(0,1fr)}
@@ -184,7 +188,7 @@ html{scroll-snap-type:y proximity}
 @media (max-width:600px){
   .cover-body{padding:24px 20px 10px;gap:12px;align-self:center}
   .cover-shade{background:linear-gradient(180deg,rgba(10,22,27,.78) 0%,rgba(10,22,27,.58) 55%,rgba(10,22,27,.08) 80%,rgba(10,22,27,.35) 100%)}
-  .page{padding-block:32px 22px}
+  .page{padding-block:28px 52px}
   .page .sec-head{margin-bottom:12px}
   h2{font-size:1.45rem}
   /* 路線頁：短版說明、地圖縮到一屏內 */
@@ -262,7 +266,7 @@ html{scroll-snap-type:y proximity}
     <h2>新北市河濱公共自行車 淡江租借站</h2>
     <p>位於淡水漁人碼頭旁、情人橋附近。騎自己的車來或現場租借都可以，租借站有一般自行車可租，請提前 15 分鐘到場辦理。</p>
   </div>
-  <a class="next" href="#route">往下 · 路線 ↓</a>
+  <nav class="pager"><a href="#cover" aria-label="上一頁"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg></a><a href="#route" aria-label="下一頁"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a></nav>
 </section>
 
 <section id="route" class="page">
@@ -339,6 +343,7 @@ html{scroll-snap-type:y proximity}
   </div>
 
   </div>
+  <nav class="pager"><a href="#meet" aria-label="上一頁"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg></a><a href="#schedule" aria-label="下一頁"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a></nav>
 </section>
 
 <section id="schedule" class="page">
@@ -359,6 +364,7 @@ html{scroll-snap-type:y proximity}
     <div class="row"><div class="t">16:05<small>回程</small></div><div class="what"><b>原路過橋回漁人碼頭</b><span>再騎淡江大橋一次，迎著夕陽回淡水，約 4 km、20 分鐘</span></div></div>
     <div class="row"><div class="t">16:30<small>約 19 km</small></div><div class="what"><b>淡江租借站 還車、解散</b><span>想續攤的可以走去淡水老街</span></div></div>
   </div>
+  <nav class="pager"><a href="#route" aria-label="上一頁"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg></a><a href="#notes" aria-label="下一頁"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a></nav>
 </section>
 
 <section id="notes" class="page">
@@ -395,6 +401,7 @@ html{scroll-snap-type:y proximity}
       </ul>
     </div>
   </div>
+  <nav class="pager"><a href="#schedule" aria-label="上一頁"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg></a><a href="#cover" aria-label="回到封面"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a></nav>
 </section>
 
 
