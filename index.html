@@ -155,8 +155,8 @@ footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font
   <p class="lede">去年我們搭渡輪回淡水，今年我們直接騎上淡江最新地標。從淡江租借站出發，沿金色水岸觀海長堤看海，轉進公司田溪自行車道穿過淡海新市鎮，再迎著河口的風跨過淡江大橋到八里。沒有計時、沒有競速，一起騎、一起聊、一起看風景。</p>
   <div class="facts">
     <div class="fact"><div class="k">日期</div><div class="v">10/18</div><div class="s">2026 年 · 星期日</div></div>
-    <div class="fact"><div class="k">集合</div><div class="v">13:00</div><div class="s">約 16:00 於八里十三行解散</div></div>
-    <div class="fact"><div class="k">距離</div><div class="v">約 15 km</div><div class="s">平坦為主 · 全程單車道</div></div>
+    <div class="fact"><div class="k">集合</div><div class="v">13:00</div><div class="s">約 16:30 回淡江租借站解散</div></div>
+    <div class="fact"><div class="k">距離</div><div class="v">15 + 4 km</div><div class="s">到十三行 15 km，回程再 4 km</div></div>
   </div>
   <div class="cta">
     <a class="btn primary" href="https://maps.app.goo.gl/GFWC3UEqQsR4SAmt9" target="_blank" rel="noopener">在 Google 地圖開啟路線</a>
@@ -176,7 +176,7 @@ footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font
   <div class="sec-head">
     <div class="eyebrow">路線</div>
     <h2>先往北看海，繞溪回來，再往南過橋</h2>
-    <p>路線是一個不走回頭路的環。先沿海堤北上，騎完金色水岸觀海長堤後接公司田溪自行車道，穿過淡海新市鎮回到沙崙路；接淡水觀海長堤，騎上淡江大橋到八里端的十三行文化公園，吃完點心就地解散，不回程。全程約 15 公里，以休閒速度騎約 1 小時 10 分，其餘時間留給看海、拍照、吃點心。</p>
+    <p>路線是一個不走回頭路的環。先沿海堤北上，騎完金色水岸觀海長堤後接公司田溪自行車道，穿過淡海新市鎮回到沙崙路；接淡水觀海長堤，騎上淡江大橋到八里端的十三行文化公園吃點心，再過橋回漁人碼頭還車解散。到十三行約 15 公里，回程再約 4 公里；想留在八里的人可以在十三行自行脫隊。</p>
   </div>
 
   <div class="map">
@@ -196,6 +196,8 @@ footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font
       <path class="route" d="M1045 45 L1070 110 L1085 172 L1110 232 L1180 248 L1250 240 L1310 243 L1250 310 L1180 380 L1110 435 L1045 467"/>
       <!-- 南段：過橋 -->
       <path class="route" d="M1045 467 L1062 510 L1040 570 L985 660 L935 745 L935 815"/>
+      <!-- 回程（可脫隊） -->
+      <path class="route-back" d="M920 815 L920 745 L970 660 L1025 570 L1047 510 L1030 462 L960 442"/>
       <!-- 點位 -->
       <circle class="pt turn" cx="1045" cy="45" r="9"/>
       <circle class="pt" cx="1085" cy="172" r="8"/>
@@ -222,17 +224,17 @@ footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font
       <text class="lbl" x="1062" y="473">淡水觀海長堤</text>
       <text class="lbl" x="1035" y="598">淡江大橋</text>
       <text class="lbl" x="955" y="822">十三行文化公園</text>
-      <text class="lbl sm" x="955" y="842">終點 · 點心 · 解散</text>
+      <text class="lbl sm" x="955" y="842">點心 · 可在此脫隊</text>
       <text class="lbl sm" x="860" y="620">淡水河口</text>
       <text class="lbl sm" x="800" y="150">台灣海峽</text>
       <!-- 圖例 -->
       <g class="legend">
         <line x1="1180" y1="760" x2="1230" y2="760" stroke="var(--sea)" stroke-width="7" stroke-linecap="round"/>
-        <text x="1240" y="766">路線 約 15 km</text>
-        <circle cx="1205" cy="800" r="8" class="pt"/>
-        <text x="1240" y="806">停點</text>
+        <text x="1240" y="766">去程 約 15 km</text>
+        <line x1="1180" y1="795" x2="1230" y2="795" stroke="var(--amber)" stroke-width="4" stroke-dasharray="10 9" stroke-linecap="round"/>
+        <text x="1240" y="801">回程 約 4 km（可脫隊）</text>
         <circle cx="1205" cy="834" r="8" class="pt turn"/>
-        <text x="1240" y="840">轉折點 / 終點</text>
+        <text x="1240" y="840">轉折點</text>
       </g>
     </svg>
     <div class="map-note">
@@ -249,7 +251,9 @@ footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font
     <div class="row"><div class="t">14:25<small>6 km</small></div><div class="what"><b>公司田溪自行車道 · 水管公園</b><span>沿溪穿過淡海新市鎮，離開海風、進入樹蔭與社區段</span></div></div>
     <div class="row"><div class="t">14:45<small>8 km</small></div><div class="what"><b>濱海沙崙，轉沙崙路南下</b><span>與市區道路並行的單車道，注意路口與行人</span></div></div>
     <div class="row rest"><div class="t">15:05<small>10.5 km</small></div><div class="what"><b>淡水觀海長堤，騎上淡江大橋</b><span>自行車道靠右、單列前進，橋頂視野處停留拍照 10 到 15 分鐘</span></div></div>
-    <div class="row rest"><div class="t">15:35<small>約 15 km</small></div><div class="what"><b>十三行文化公園 · 點心、合照、解散</b><span>八里挖子尾。發放小點心、補水、上洗手間，合照後就地解散，不回程</span></div></div>
+    <div class="row rest"><div class="t">15:35<small>約 15 km</small></div><div class="what"><b>十三行文化公園 · 點心、合照</b><span>八里挖子尾。發放小點心、補水、上洗手間。想留在八里的人可在此自行脫隊，請先告知壓隊</span></div></div>
+    <div class="row"><div class="t">16:05<small>回程</small></div><div class="what"><b>原路過橋回漁人碼頭</b><span>再騎淡江大橋一次，迎著夕陽回淡水，約 4 km、20 分鐘</span></div></div>
+    <div class="row"><div class="t">16:30<small>約 19 km</small></div><div class="what"><b>淡江租借站 還車、解散</b><span>想續攤的可以走去淡水老街</span></div></div>
   </div>
 </section>
 
@@ -266,7 +270,7 @@ footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font
     <div class="note-group">
       <h3>騎乘安全</h3>
       <ul>
-        <li>全程戴安全帽，扣好扣環。租借車也一樣。</li>
+        <li>全程戴安全帽，扣好扣環。</li>
         <li>跟車保持一台車以上的距離，前方減速請舉手示意。</li>
         <li>自行車道與行人共用路段請禮讓行人，鈴聲提醒即可，不按喇叭、不催。</li>
         <li>分隊騎行：領騎在前、壓隊在後，中途不脫隊、不自行抄近路。看不到前後隊友時請停下等候。</li>
@@ -286,7 +290,7 @@ footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font
       <h3>行程規則</h3>
       <ul>
         <li>公司田溪自行車道與沙崙路段會穿過社區與路口，請減速並依號誌通行。</li>
-        <li>活動在八里十三行文化公園解散，不騎回淡水。請自行安排返程。</li>
+        <li>十三行休息後團隊會過橋騎回漁人碼頭還車；想留在八里的人可在十三行脫隊，請先告知壓隊並自行安排返程與還車。</li>
       </ul>
     </div>
   </div>
