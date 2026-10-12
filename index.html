@@ -147,6 +147,31 @@ section{padding-block:48px 8px}
 
 footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--ink-2);font-size:.85rem;display:grid;gap:6px}
 footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font-size:1.05rem}
+
+/* 分區翻頁：封面與集合地點各佔一屏，路線與注意事項維持自然高度，只對齊區塊頂端 */
+html{scroll-snap-type:y proximity}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.cover,#meet,#route,#notes{scroll-snap-align:start}
+.cover{min-height:100vh;min-height:100svh;grid-template-rows:1fr auto auto}
+.cover-body{padding:72px 20px 24px;align-self:start}
+.cover .facts{margin:0 auto 28px;max-width:860px;width:calc(100% - 40px);background:rgba(10,22,27,.55);border-color:rgba(255,255,255,.22);box-shadow:none;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff}
+.cover .fact{border-color:rgba(255,255,255,.22)}
+.cover .fact .k,.cover .fact .s{color:rgba(255,255,255,.72)}
+.scroll-hint{justify-self:center;margin-bottom:14px;display:inline-flex;flex-direction:column;align-items:center;gap:2px;color:rgba(255,255,255,.8);font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-decoration:none}
+.scroll-hint svg{width:22px;height:22px}
+@media (prefers-reduced-motion:no-preference){.scroll-hint svg{animation:bob 1.6s ease-in-out infinite}@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}}
+#meet{min-height:100vh;min-height:100svh;display:grid;align-content:center;padding-block:48px}
+#meet .sec-head{margin-bottom:0}
+#meet .sec-head p{max-width:34em;font-size:1.08rem}
+#meet .next{margin-top:28px;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.1em;color:var(--sea);text-decoration:none}
+#route,#notes{padding-block:72px 40px}
+.dots{position:fixed;right:14px;top:50%;transform:translateY(-50%);display:grid;gap:14px;z-index:5;margin:0;padding:0;list-style:none}
+.dots a{display:block;width:10px;height:10px;border-radius:50%;border:2px solid var(--ink-2);background:transparent;position:relative;transition:background .2s,border-color .2s}
+.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:.72rem;color:var(--ink-2);white-space:nowrap;opacity:0;transition:opacity .2s;font-family:var(--f-body)}
+.dots a:hover span,.dots a:focus-visible span{opacity:1}
+.dots a.on{background:var(--amber);border-color:var(--amber)}
+.dots.on-cover a{border-color:rgba(255,255,255,.7)}.dots.on-cover a span{color:#fff}.dots.on-cover a.on{background:#fff;border-color:#fff}
+@media (max-width:700px){.dots{display:none}}
 @media (prefers-reduced-motion:no-preference){
   .cover h1{animation:rise .7s ease-out both}
   @keyframes rise{from{opacity:.001;transform:translateY(8px)}to{opacity:1;transform:none}}
@@ -154,7 +179,7 @@ footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font
 </style>
 </head>
 <body>
-<header class="cover">
+<header class="cover" id="cover">
   <img class="cover-img" src="assets/cover.jpg" fetchpriority="high" alt="傍晚的淡江大橋，橋塔與路燈亮起，倒映在淡水河口">
   <div class="cover-shade"></div>
   <div class="cover-body">
@@ -166,15 +191,16 @@ footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font
       <a class="btn" href="#notes">先看注意事項</a>
     </div>
   </div>
-</header>
-
-<div class="wrap">
-
+  <a class="scroll-hint" href="#meet" aria-label="往下看集合地點">往下<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
   <div class="facts">
     <div class="fact"><div class="k">日期</div><div class="v">10/18</div><div class="s">2026 年 · 星期日</div></div>
     <div class="fact"><div class="k">集合</div><div class="v">13:00</div><div class="s">約 16:30 回淡江租借站解散</div></div>
     <div class="fact"><div class="k">距離</div><div class="v">15 + 4 km</div><div class="s">到十三行 15 km，回程再 4 km</div></div>
   </div>
+</header>
+
+<div class="wrap">
+
 
 <section id="meet">
   <div class="sec-head">
@@ -182,6 +208,7 @@ footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font
     <h2>新北市河濱公共自行車 淡江租借站</h2>
     <p>位於淡水漁人碼頭旁、情人橋附近。騎自己的車來或現場租借都可以，租借站有一般自行車可租，請提前 15 分鐘到場辦理。</p>
   </div>
+  <a class="next" href="#route">往下 · 路線與時程 ↓</a>
 </section>
 
 <section id="route">
@@ -311,5 +338,27 @@ footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font
 
 
 </div>
+<ol class="dots" aria-label="頁面區塊">
+  <li><a href="#cover"><span>封面</span></a></li>
+  <li><a href="#meet"><span>集合地點</span></a></li>
+  <li><a href="#route"><span>路線與時程</span></a></li>
+  <li><a href="#notes"><span>注意事項</span></a></li>
+</ol>
+<script>
+(function(){
+  var ids=['cover','meet','route','notes'];
+  var dots=document.querySelector('.dots'); if(!dots||!('IntersectionObserver' in window)) return;
+  var links={}; dots.querySelectorAll('a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var id=e.target.id;
+      Object.keys(links).forEach(function(k){links[k].classList.toggle('on',k===id);});
+      dots.classList.toggle('on-cover',id==='cover');
+    });
+  },{rootMargin:'-45% 0px -45% 0px'});
+  ids.forEach(function(id){var el=document.getElementById(id); if(el) io.observe(el);});
+})();
+</script>
 </body>
 </html>
