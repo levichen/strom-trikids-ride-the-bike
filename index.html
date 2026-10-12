@@ -58,17 +58,16 @@ p{margin:0}
 .mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
 
 /* Cover：滿版照片 + 底部漸層，標題壓在照片上；照片上的文字固定用白色，不隨主題變 */
-.cover{position:relative;isolation:isolate;min-height:min(80vh,720px);display:grid;align-items:end;overflow:hidden;color:#fff}
-.cover-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:-2}
-.cover-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,22,27,.10) 0%,rgba(10,22,27,.22) 40%,rgba(10,22,27,.88) 100%)}
-.cover-body{max-width:860px;width:100%;margin:0 auto;padding:140px 20px 64px;display:grid;gap:18px}
+.cover{position:relative;isolation:isolate;min-height:min(82vh,760px);display:grid;align-items:start;overflow:hidden;color:#fff;background:#3a3f4a}
+.cover-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 78%;z-index:-2}
+.cover-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,22,27,.72) 0%,rgba(10,22,27,.45) 45%,rgba(10,22,27,.05) 75%,rgba(10,22,27,.35) 100%)}
+.cover-body{max-width:860px;width:100%;margin:0 auto;padding:72px 20px 220px;display:grid;gap:18px}
 .cover .eyebrow{color:#f3b981}
 .cover h1{font-size:clamp(2.4rem,7.5vw,4.4rem);font-weight:800;color:#fff;text-shadow:0 2px 28px rgba(0,0,0,.45)}
 .cover h1 em{font-style:normal;color:#ffd7ae}
 .cover .lede{color:rgba(255,255,255,.88);text-shadow:0 1px 12px rgba(0,0,0,.35)}
 .cover .btn{border-color:#fff;color:#fff}
 .cover .btn.primary{background:#fff;color:#16292f}
-.credit{position:absolute;right:16px;top:calc(env(safe-area-inset-top,0px) + 12px);margin:0;font-family:var(--f-mono);font-size:.7rem;color:rgba(255,255,255,.7);letter-spacing:.04em}
 .lede{font-size:1.08rem;color:var(--ink-2);max-width:36em}
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border:1px solid var(--line);background:var(--paper);position:relative;z-index:1;margin-top:-34px;box-shadow:0 12px 40px rgba(10,22,27,.18)}
 .fact{padding:14px 16px;border-right:1px solid var(--line);min-width:0}
@@ -156,7 +155,7 @@ footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font
 </head>
 <body>
 <header class="cover">
-  <img class="cover-img" src="assets/tamsui-bridge.jpg" alt="夕陽下的淡江大橋空拍，單塔斜張橋橫跨淡水河口">
+  <img class="cover-img" src="assets/cover.jpg" fetchpriority="high" alt="傍晚的淡江大橋，橋塔與路燈亮起，倒映在淡水河口">
   <div class="cover-shade"></div>
   <div class="cover-body">
     <div class="eyebrow">風馳小鐵人 · 2026 秋季團騎</div>
@@ -167,7 +166,6 @@ footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font
       <a class="btn" href="#notes">先看注意事項</a>
     </div>
   </div>
-  <p class="credit">Photo: YU-CHU PHOTOGRAPH · instagram.com/little.xeno</p>
 </header>
 
 <div class="wrap">

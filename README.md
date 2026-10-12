@@ -16,4 +16,4 @@ python3 -m http.server 8000
 
 ## 圖片來源
 
-首頁封面照片：YU-CHU PHOTOGRAPH（instagram.com/little.xeno）。僅供風馳小鐵人團騎活動說明使用。
+首頁封面照片為活動主辦自行拍攝。
