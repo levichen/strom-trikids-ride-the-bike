@@ -13,3 +13,7 @@ python3 -m http.server 8000
 ```
 
 開啟 http://localhost:8000 即可。
+
+## 圖片來源
+
+首頁封面照片：YU-CHU PHOTOGRAPH（instagram.com/little.xeno）。僅供風馳小鐵人團騎活動說明使用。

@@ -57,12 +57,20 @@ p{margin:0}
 .eyebrow{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:600}
 .mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
 
-/* Hero */
-.hero{padding-block:56px 36px;display:grid;gap:22px;border-bottom:1px solid var(--line)}
-.hero h1{font-size:clamp(2.1rem,6vw,3.4rem);font-weight:800}
-.hero h1 em{font-style:normal;color:var(--sea)}
+/* Cover：滿版照片 + 底部漸層，標題壓在照片上；照片上的文字固定用白色，不隨主題變 */
+.cover{position:relative;isolation:isolate;min-height:min(80vh,720px);display:grid;align-items:end;overflow:hidden;color:#fff}
+.cover-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:-2}
+.cover-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,22,27,.10) 0%,rgba(10,22,27,.22) 40%,rgba(10,22,27,.88) 100%)}
+.cover-body{max-width:860px;width:100%;margin:0 auto;padding:140px 20px 64px;display:grid;gap:18px}
+.cover .eyebrow{color:#f3b981}
+.cover h1{font-size:clamp(2.4rem,7.5vw,4.4rem);font-weight:800;color:#fff;text-shadow:0 2px 28px rgba(0,0,0,.45)}
+.cover h1 em{font-style:normal;color:#ffd7ae}
+.cover .lede{color:rgba(255,255,255,.88);text-shadow:0 1px 12px rgba(0,0,0,.35)}
+.cover .btn{border-color:#fff;color:#fff}
+.cover .btn.primary{background:#fff;color:#16292f}
+.credit{position:absolute;right:16px;bottom:10px;margin:0;font-family:var(--f-mono);font-size:.7rem;color:rgba(255,255,255,.7);letter-spacing:.04em}
 .lede{font-size:1.08rem;color:var(--ink-2);max-width:36em}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border:1px solid var(--line);background:var(--paper)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border:1px solid var(--line);background:var(--paper);position:relative;z-index:1;margin-top:-34px;box-shadow:0 12px 40px rgba(10,22,27,.18)}
 .fact{padding:14px 16px;border-right:1px solid var(--line);min-width:0}
 .fact:last-child{border-right:0}
 .fact .k{font-size:.78rem;color:var(--ink-2);letter-spacing:.06em}
@@ -141,28 +149,34 @@ section{padding-block:48px 8px}
 footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--ink-2);font-size:.85rem;display:grid;gap:6px}
 footer .brand{font-family:var(--f-display);font-weight:800;color:var(--ink);font-size:1.05rem}
 @media (prefers-reduced-motion:no-preference){
-  .hero h1{animation:rise .6s ease-out both}
+  .cover h1{animation:rise .7s ease-out both}
   @keyframes rise{from{opacity:.001;transform:translateY(8px)}to{opacity:1;transform:none}}
 }
 </style>
 </head>
 <body>
+<header class="cover">
+  <img class="cover-img" src="assets/tamsui-bridge.jpg" alt="夕陽下的淡江大橋空拍，單塔斜張橋橫跨淡水河口">
+  <div class="cover-shade"></div>
+  <div class="cover-body">
+    <div class="eyebrow">風馳小鐵人 · 2026 秋季團騎</div>
+    <h1>秋日吹風，<em>騎上淡江大橋</em></h1>
+    <p class="lede">去年我們搭渡輪回淡水，今年我們直接騎上淡江最新地標。從淡江租借站出發，沿金色水岸觀海長堤看海，轉進公司田溪自行車道穿過淡海新市鎮，再迎著河口的風跨過淡江大橋到八里。沒有計時、沒有競速，一起騎、一起聊、一起看風景。</p>
+    <div class="cta">
+      <a class="btn primary" href="https://maps.app.goo.gl/GFWC3UEqQsR4SAmt9" target="_blank" rel="noopener">在 Google 地圖開啟路線</a>
+      <a class="btn" href="#notes">先看注意事項</a>
+    </div>
+  </div>
+  <p class="credit">Photo: YU-CHU PHOTOGRAPH · instagram.com/little.xeno</p>
+</header>
+
 <div class="wrap">
 
-<header class="hero">
-  <div class="eyebrow">風馳小鐵人 · 2026 秋季團騎</div>
-  <h1>秋日吹風，<em>騎上淡江大橋</em></h1>
-  <p class="lede">去年我們搭渡輪回淡水，今年我們直接騎上淡江最新地標。從淡江租借站出發，沿金色水岸觀海長堤看海，轉進公司田溪自行車道穿過淡海新市鎮，再迎著河口的風跨過淡江大橋到八里。沒有計時、沒有競速，一起騎、一起聊、一起看風景。</p>
   <div class="facts">
     <div class="fact"><div class="k">日期</div><div class="v">10/18</div><div class="s">2026 年 · 星期日</div></div>
     <div class="fact"><div class="k">集合</div><div class="v">13:00</div><div class="s">約 16:30 回淡江租借站解散</div></div>
     <div class="fact"><div class="k">距離</div><div class="v">15 + 4 km</div><div class="s">到十三行 15 km，回程再 4 km</div></div>
   </div>
-  <div class="cta">
-    <a class="btn primary" href="https://maps.app.goo.gl/GFWC3UEqQsR4SAmt9" target="_blank" rel="noopener">在 Google 地圖開啟路線</a>
-    <a class="btn" href="#notes">先看注意事項</a>
-  </div>
-</header>
 
 <section id="meet">
   <div class="sec-head">
