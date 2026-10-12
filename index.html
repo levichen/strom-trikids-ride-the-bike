@@ -65,7 +65,7 @@ p{margin:0}
 .cover-body{max-width:860px;width:100%;margin:0 auto;padding:72px 20px 220px;display:grid;gap:18px}
 .cover .eyebrow{color:#f3b981}
 .cover h1{font-size:clamp(2.4rem,7.5vw,4.4rem);font-weight:800;color:#fff;text-shadow:0 2px 28px rgba(0,0,0,.45)}
-.cover h1 em{font-style:normal;color:#ffd7ae}
+.cover h1 em{font-style:normal;color:#ffd7ae;display:inline-block}
 .cover .lede{color:rgba(255,255,255,.88);text-shadow:0 1px 12px rgba(0,0,0,.35)}
 .cover .btn{border-color:#fff;color:#fff}
 .cover .btn.primary{background:#fff;color:#16292f}
@@ -160,7 +160,8 @@ html{scroll-snap-type:y proximity}
 .page{min-height:100vh;min-height:100svh;display:grid;align-content:center;padding-block:40px 28px;box-sizing:border-box}
 .page .sec-head{margin-bottom:18px}
 @media (min-width:900px){#route .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:32px;align-items:center}#route .sec-head{margin-bottom:0}}
-.cover{min-height:100vh;min-height:100svh;grid-template-rows:1fr auto auto}
+.cover{min-height:100vh;min-height:100svh;grid-template-rows:1fr auto auto;grid-template-columns:minmax(0,1fr)}
+.cover>*{min-width:0}
 .cover-body{padding:72px 20px 24px;align-self:start}
 .cover .facts{margin:0 auto 28px;max-width:860px;width:calc(100% - 40px);background:rgba(10,22,27,.55);border-color:rgba(255,255,255,.22);box-shadow:none;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff}
 .cover .fact{border-color:rgba(255,255,255,.22)}
