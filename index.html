@@ -204,6 +204,15 @@ html{scroll-snap-type:y proximity}
   .tl .row.open .what b::after{content:" ⌃"}
   .tl .what span{display:none;font-size:.85rem;line-height:1.55;margin-top:2px}
   .tl .row.open .what span{display:block}
+  /* 注意事項頁：各組預設收合，點標題展開 */
+  .notes{gap:12px}
+  .note-group h3{cursor:pointer;font-size:1.02rem}
+  .note-group h3::after{content:" ⌄";color:var(--ink-2);font-size:.85em}
+  .note-group.open h3::after{content:" ⌃"}
+  .note-group ul{display:none}
+  .note-group.open ul{display:grid}
+  .note-group li{font-size:.92rem;line-height:1.55}
+  .callout{padding:10px 14px;font-size:.92rem}
   .cover h1{font-size:2.15rem}
   .cover .lede{font-size:.98rem;line-height:1.6}
   .cover .cta{gap:8px}
@@ -403,6 +412,7 @@ html{scroll-snap-type:y proximity}
 <script>
 (function(){
   document.querySelectorAll('.tl .row').forEach(function(r){r.addEventListener('click',function(){r.classList.toggle('open');});});
+  document.querySelectorAll('.note-group h3').forEach(function(h){h.addEventListener('click',function(){h.parentNode.classList.toggle('open');});});
   var ids=['cover','meet','route','schedule','notes'];
   var dots=document.querySelector('.dots'); if(!dots||!('IntersectionObserver' in window)) return;
   var links={}; dots.querySelectorAll('a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
